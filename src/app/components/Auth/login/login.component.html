@@ -74,29 +74,29 @@
                         <div *ngIf="userNotFound">
                           authentication failed
                       </div>
-                      <div *ngIf="loginform.controls['email'].invalid && (loginform.controls['email'].dirty || loginform.controls['email'].touched)">
-                          <div *ngIf="loginform.controls['email'].hasError('required')" class="text-danger">
+                      <div *ngIf="loginform.controls['UserEmail'].invalid && (loginform.controls['UserEmail'].dirty || loginform.controls['UserEmail'].touched)">
+                          <div *ngIf="loginform.controls['UserEmail'].hasError('required')" class="text-danger">
                               email is required
                           </div>
                       </div>
-                      <div *ngIf="loginform.controls['password'].invalid && (loginform.controls['password'].dirty || loginform.controls['password'].touched)">
-                          <div *ngIf="loginform.controls['password'].hasError('required')" class="text-danger">
+                      <div *ngIf="loginform.controls['Password'].invalid && (loginform.controls['Password'].dirty || loginform.controls['Password'].touched)">
+                          <div *ngIf="loginform.controls['Password'].hasError('required')" class="text-danger">
                               password is required
                           </div>
                       </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email </label>
-                            <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="Valid('email',loginform)" placeholder="Enter your email" />
+                            <label for="UserEmail" class="form-label">Email </label>
+                            <input type="text" class="form-control" id="UserEmail" formControlName="UserEmail" [ngClass]="Valid('UserEmail',loginform)" placeholder="Enter your email" />
                         </div>
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">Password</label>
+                                <label class="form-label" for="Password">Password</label>
                                 <a routerLink="/resetpassword">
                                     <small>Forgot Password?</small>
                                 </a>
                             </div>
                             <div class="input-group input-group-merge">
-                                <input  [ngClass]="Valid('password',loginform)" [type]="type" id="password" class="form-control" formControlName="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                                <input  [ngClass]="Valid('Password',loginform)" [type]="type" id="Password" class="form-control" formControlName="Password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                                 <span (click)="hideShowPass()"      class="input-group-text cursor-pointer"><i class="bx {{eyeIcon}}" ></i></span>
                             </div>
                         </div>

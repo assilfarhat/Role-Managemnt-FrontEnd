@@ -1,0 +1,6 @@
+#layout-menu {
+    height: 100%;
+    position: fixed; /* or position: absolute; */
+    top: 0; /* If using position: fixed; */
+    bottom: 0; /* If using position: absolute; */
+  }

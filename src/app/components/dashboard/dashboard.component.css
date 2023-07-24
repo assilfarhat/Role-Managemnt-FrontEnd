@@ -1,0 +1,6 @@
+.container-xxl {
+    margin-left: 270px; /* Adjust this value as needed */
+    width: calc(100% - 250px); /* Ensure the content fits with space for the sidebar */
+    overflow-x: auto;
+  }
+
