@@ -1,10 +1,15 @@
+import { AddroleComponent } from './Roles/addrole/addrole.component';
 import { UsersComponent } from './users/users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 
-const routes: Routes = [{ path: '', component: DashboardComponent , children: [
-  { path: 'Users', component: UsersComponent },
+
+const routes: Routes = [
+  { path: '', component: DashboardComponent , children: [
+    { path: 'Users', component: UsersComponent },
+    { path: 'addRole', component: AddroleComponent },
+    
  
 
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,13 @@ export class UserService {
 
   getUsers() {
     return this.http.get<any>(`${this.baseUrl}getusers`);
+  }
+
+  addRole(roleName: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}addrole`,roleName);
+  }
+  getRoles(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.baseUrl}getroles`);
   }
 
   public getRoleFromStore(){

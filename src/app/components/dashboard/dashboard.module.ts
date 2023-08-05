@@ -8,6 +8,8 @@ import { UsersComponent } from './users/users.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { AddroleComponent } from './Roles/addrole/addrole.component';
+
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
+    AddroleComponent,
     
   ],
   imports: [
