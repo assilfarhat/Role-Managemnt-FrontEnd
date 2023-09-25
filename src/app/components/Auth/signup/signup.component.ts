@@ -87,6 +87,7 @@ Signup() {
       Role:'',
       Token:''
     }
+    console.log("signUpObj",signUpObj)
     this.auth.signUp(signUpObj)
     .subscribe({
       next:(res=>{
@@ -97,6 +98,7 @@ Signup() {
         
       }),
       error:(err=>{
+        console.log(err.message);
         this.toastr.error('something went wrong')
       })
     })

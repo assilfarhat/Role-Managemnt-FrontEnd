@@ -18,6 +18,9 @@ import { NotfoundpageComponent } from './components/notfoundpage/notfoundpage.co
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TokenInterceptor } from './core/helpers/token.interceptor';
+import { NgxPermissionsModule } from 'ngx-permissions';
+import { NotPermitedComponent } from './components/not-permited/not-permited.component';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { TokenInterceptor } from './core/helpers/token.interceptor';
     SignupComponent,
     NotfoundpageComponent,
     UnauthorizedComponent,
+    NotPermitedComponent,
+   
     
   ],
   imports: [
@@ -43,6 +48,7 @@ import { TokenInterceptor } from './core/helpers/token.interceptor';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }), // ToastrModule added
+   
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

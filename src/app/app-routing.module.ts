@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { NotfoundpageComponent } from './components/notfoundpage/notfoundpage.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { NotPermitedComponent } from './components/not-permited/not-permited.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: 'not-permited', component: NotPermitedComponent },
   { path: 'dashboard', loadChildren: () => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule), canActivate :[AuthGuard] },
    { path: '**', component: NotfoundpageComponent },
 ];

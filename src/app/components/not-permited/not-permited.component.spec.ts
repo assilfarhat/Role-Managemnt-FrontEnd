@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsersComponent } from './users.component';
+import { NotPermitedComponent } from './not-permited.component';
 
-describe('UsersComponent', () => {
-  let component: UsersComponent;
-  let fixture: ComponentFixture<UsersComponent>;
+describe('NotPermitedComponent', () => {
+  let component: NotPermitedComponent;
+  let fixture: ComponentFixture<NotPermitedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsersComponent ]
+      declarations: [ NotPermitedComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UsersComponent);
+    fixture = TestBed.createComponent(NotPermitedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

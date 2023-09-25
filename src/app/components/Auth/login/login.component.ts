@@ -45,23 +45,26 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginform.valid) {
-      console.log(this.loginform.value);
+      console.log("form" ,this.loginform.value);
       this.AuthService.login(this.loginform.value).subscribe({
         next: (res) => {
-          console.log(res);
+          console.log("res" ,res);
           this.loginform.reset();
           this.AuthService.storeToken(res.accessToken);
           this.AuthService.storeRefreshToken(res.refreshToken);
           const tokenPayload = this.AuthService.decodedToken();
-          console.log(tokenPayload);
+          console.log("decode token:",tokenPayload);
           this.UserService.setFullNameForStore(tokenPayload.name);
           this.UserService.setRoleForStore(tokenPayload.role);
+
+          console.log("token : ",res.accessToken);
           this.toastr.success("Account created successfully" ," Time to log in, Account created !")
 
-          this.router.navigate(['dashboard'])
+          this.router.navigate(['dashboard/home'])
         },
         error: (err) => {
           this.toastr.error("ERROR", "Something when wrong!");
+          
           console.log(err);
         },
       });

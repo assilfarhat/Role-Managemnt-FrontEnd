@@ -1,0 +1,91 @@
+<!-- Grid Card -->
+<div style="margin-left: 23px;" class="col-md-12">
+    <ul class="nav nav-pills flex-column flex-md-row mb-3">
+        <h4 >
+            <span style="margin-right: 10px;" class="text-muted fw-light">Permissions Settings</span>
+          </h4>
+          <button  data-bs-toggle="modal" data-bs-target="#staticBackdrop" aria-selected="true" class="btn btn-primary">Add new Product</button>
+       
+       </ul>
+</div>
+<div style="margin: 10px;" class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+    
+  <div class="col-md-4" *ngFor=" let prod of products | paginate : { itemsPerPage: 6, currentPage: p }">
+  
+    <div class="card " style="height: 60%;">
+      <img class="card-img" style="height: 40%" src="{{prod.image}}" alt="Card image cap" />
+      <div class="card-body">
+        <h3 class="card-title">{{prod.name}}</h3>
+        <h4 class="card-subtitle">{{prod.price}} $ </h4>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <button type="button" (click)="delete(prod)" class="btn btn-outline-danger">Delete</button> &nbsp;
+        <button type="button"  (click)="update(prod.id)" class="btn btn-outline-success">Update</button> &nbsp;
+                         
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Role</h5>
+        </div>
+
+        <form [formGroup]="addForm" (ngSubmit)="addprod()" class="mb-3">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="Name" class="form-label"> Name</label>
+              <input type="text" class="form-control" id="Name" formControlName="Name" placeholder="Enter the product name" />
+              <div *ngIf="addForm.controls['Name'].invalid && (addForm.controls['Name'].dirty || addForm.controls['Name'].touched)">
+                <div *ngIf="addForm.controls['Name'].hasError('required')" class="text-danger">
+                  Name is required
+                </div>
+                <div *ngIf="addForm.controls['Name'].hasError('minlength')" class="text-danger">
+                  Name must be at least 3 characters
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="Price" class="form-label"> Price</label>
+              <input type="number" class="form-control" id="Price" formControlName="Price" placeholder="Enter the product Price" />
+              <div *ngIf="addForm.controls['Price'].invalid && (addForm.controls['Price'].dirty || addForm.controls['Price'].touched)">
+                <div *ngIf="addForm.controls['Price'].hasError('required')" class="text-danger">
+                  Price is required
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="Image" class="form-label"> Image  </label>
+                <input class="form-control" id="Image" formControlName="Image" type="file"  placeholder="Enter the image url">
+                <div *ngIf="addForm.controls['Image'].invalid && (addForm.controls['Image'].dirty || addForm.controls['Image'].touched)">
+                    <div *ngIf="addForm.controls['Image'].hasError('required')" class="text-danger">
+                      image is required
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Add</button>
+        </div>
+        
+        </form>
+      </div>
+    </div>
+  </div>
+  
+            <pagination-controls
+            (pageChange)="p = $event"
+            (pageBoundsCorrection)="p = $event"
+            previousLabel="Previous"
+            nextLabel="Next"
+            screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"
+            class="pagination"
+            >
+            </pagination-controls>
+    

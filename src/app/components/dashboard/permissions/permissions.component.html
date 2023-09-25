@@ -1,0 +1,139 @@
+   <!-- Content wrapper -->
+     <div class="content-wrapper">
+
+        <!-- Content -->
+        
+          <div class="container-xxl flex-grow-1 container-p-y">
+            
+            
+<h4 class="fw-bold py-3 mb-4">
+  <span class="text-muted fw-light">Pemissions Settings  </span>
+</h4>
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-pills flex-column flex-md-row mb-3">
+      <button class="btn btn-primary" (click)="updatePermissions()">Update Permissions</button>
+   
+    </ul>
+    
+    <div class="row">
+      
+      <div class="col-md-6 col-12 mb-md-0 mb-4">
+        <div class="card">
+          <h5 class="card-header"> Role Permissions</h5>
+          <div class="card-body">
+
+            
+            <!-- Connections -->
+            <div  *ngFor=" let per of permissions" >
+              <div class="d-flex mb-3" *ngIf="per.name.startsWith('Role.')">
+                <div class="flex-shrink-0">
+                  <img src="../assets/img/icons/unicons/cc-warning.png" alt="google" class="me-3" height="30">
+                </div>
+                <div class="flex-grow-1 row" >
+                  <div class="col-9 mb-sm-0 mb-2">
+                    <h6 class="mb-0">{{per.name}}</h6>
+                     </div>
+                  <div class="col-3 text-end">
+                    <div class="form-check form-switch" >
+                      <input class="form-check-input float-end" type="checkbox" role="switch" 
+                      [checked]="permissionExists(per.id)"
+                      (change)="togglePermission(per.id)"
+                    >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+           
+           
+            <!-- /Connections -->
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-12">
+        <div class="card">
+          <h5 class="card-header">Product Permissions</h5>
+          <div class="card-body">
+           
+            <!-- Social Accounts -->
+            <div  *ngFor=" let per of permissions" >
+              <div class="d-flex mb-3" *ngIf="per.name.startsWith('Product.')">
+                <div class="flex-shrink-0">
+                  <img src="../assets/img/icons/unicons/cc-primary.png" alt="facebook" class="me-3" height="30">
+                </div>
+                <div class="flex-grow-1 row">
+                  <div class="col-8 col-sm-7 mb-sm-0 mb-2">
+                    <h6 class="mb-0">{{per.name}}</h6>
+                   
+                  </div>
+                  <div class="col-4 col-sm-5 text-end">
+                   
+                      <div class="form-check form-switch">
+                        <input class="form-check-input float-end" type="checkbox" role="switch" 
+                        [checked]="permissionExists(per.id)"
+                         (change)="togglePermission(per.id)"
+                         >
+                      </div>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+           
+            <!-- /Social Accounts -->
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 10px;" class="col-md-6 col-12 mb-md-0 mb-4">
+        <div class="card">
+          <h5 class="card-header"> User Permissions</h5>
+          <div class="card-body">
+
+            
+            <!-- Connections -->
+            <div  *ngFor=" let per of permissions" >
+              <div class="d-flex mb-3" *ngIf="per.name.startsWith('User.')">
+                <div class="flex-shrink-0">
+                  <img src="../assets/img/icons/unicons/cc-success.png" alt="google" class="me-3" height="30">
+                </div>
+                <div class="flex-grow-1 row" >
+                  <div class="col-9 mb-sm-0 mb-2">
+                    <h6 class="mb-0">{{per.name}}</h6>
+                     </div>
+                  <div class="col-3 text-end">
+                    <div class="form-check form-switch" >
+                      <input class="form-check-input float-end" type="checkbox" role="switch" 
+                      [checked]="permissionExists(per.id)"
+                      (change)="togglePermission(per.id)"
+                    >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+           
+           
+            <!-- /Connections -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            
+          </div>
+          <!-- / Content -->
+
+          
+          
+

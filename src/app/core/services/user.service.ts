@@ -15,6 +15,19 @@ export class UserService {
   getUsers() {
     return this.http.get<any>(`${this.baseUrl}getusers`);
   }
+  deleteUser(id: number) {
+   // console.log("deleteUser: " + id);
+    return this.http.delete(`${this.baseUrl}delete/${id}`);
+  }
+  
+  updateUser(id: number, user: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}${id}`, user);
+  }
+  
+  getUserById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}${id}`);
+  }
+  
 
   addRole(roleName: string): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}addrole`,roleName);

@@ -9,6 +9,11 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AddroleComponent } from './Roles/addrole/addrole.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PermissionsComponent } from './permissions/permissions.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductupdateComponent } from './productupdate/productupdate.component';
+import { HomeComponent } from './shared/home/home.component';
 
 
 @NgModule({
@@ -19,12 +24,17 @@ import { AddroleComponent } from './Roles/addrole/addrole.component';
     HeaderComponent,
     FooterComponent,
     AddroleComponent,
+    PermissionsComponent,
+    ProductsComponent,
+    ProductupdateComponent,
+    HomeComponent,
     
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     NgxPaginationModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

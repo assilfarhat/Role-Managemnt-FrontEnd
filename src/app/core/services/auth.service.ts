@@ -19,6 +19,7 @@ export class AuthService {
   }
 
   login(loginObj:any){
+   // console.log( "service :" ,loginObj)
     return this.http.post<any>(`${this.BaseUrl}authenticate`,loginObj)
 
   }
@@ -43,7 +44,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean{
-    console.log(!!localStorage.getItem('token'));
+   // console.log(!!localStorage.getItem('token'));
     return !!localStorage.getItem('token')
   }
 

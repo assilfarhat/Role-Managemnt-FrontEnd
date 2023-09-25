@@ -3,24 +3,16 @@
 
 
 <nav class="nav nav-pills nav-fill">
-    <a class="nav-item nav-link active" aria-disabled="true" [routerLinkActive]="['is-active']"   aria-selected="true">List of users</a>
-    <a class="nav-item nav-link" routerLink="form"  aria-selected="true">Add Form</a>
+    <a class="nav-item nav-link active" aria-disabled="true" [routerLinkActive]="['is-active']"   aria-selected="true">List of roles</a>
+    <a class="nav-item nav-link"   data-bs-toggle="modal" data-bs-target="#staticBackdrop" aria-selected="true">Add Form</a>
   </nav>
 
   
 <div class="container-xxl flex-grow-1 container-p-y">
-    
-    <div style="width: 30%;margin-left: 700px;">
-        <form class="d-flex justify-content-end">
-            <div class="input-group">
-                <span class="input-group-text"><i class="tf-icons bx bx-search"></i></span>
-                <input class="form-control" type="text" name="search"  autocomplete="off" placeholder="Search by name">
-            </div>
-        </form>
-    </div>
+ 
 
 
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> List of users </h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> List of roles </h4>
    
     <div class="card">
 
@@ -38,14 +30,44 @@
               ">
                     <tr class="table-default" >
                         
-                        <td>{{role}}</td>
+                        <td>{{role.roleName}}</td>
                    
                         <td>
-                            <button type="button" routerLink="" class="btn btn-outline-success">Edit</button> &nbsp;
-                            <button type="button"  class="btn btn-outline-danger">Delete</button> &nbsp;
-                            <button type="button" routerLink="" class="btn btn-outline-info">Details</button> &nbsp;
-                                </td>
+                            <button type="button"  routerLink="Permissions/{{role.id}}" class="btn btn-outline-success">Edit</button> &nbsp;
+                            <button type="button"  (click)="delete(role)" class="btn btn-outline-danger">Delete</button> &nbsp;
+                            
                     </tr>
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Add Role</h5>
+
+                            <form [formGroup]='addroleForm' (ngSubmit)="AddRole()" id="formAuthentication"  class="mb-3">
+                              <div class="mb-3">
+                                  <label for="RoleName" class="form-label">Role Name</label>
+                                  <input type="text"  class="form-control" class="form-control" class="form-control" id="RoleName" formControlName="RoleName" placeholder="Enter the role name" />
+                                  <div *ngIf="addroleForm.controls['RoleName'].invalid && (addroleForm.controls['RoleName'].dirty || addroleForm.controls['RoleName'].touched)">
+                                    <div *ngIf="addroleForm.controls['RoleName'].hasError('required')" class="text-danger">
+                                      Role Name is required
+                                    </div>
+                                    <div *ngIf="addroleForm.controls['RoleName'].hasError('minlength')" class="text-danger">
+                                      Role Name must be at least 3 characters
+                                    </div>
+                                </div>
+                                
+                                 
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Add</button>
+                              </div>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
                 </tbody>
             </table>
 

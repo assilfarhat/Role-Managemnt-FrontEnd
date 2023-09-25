@@ -1,0 +1,40 @@
+/* If using CSS */
+.card {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: auto;
+    padding: 60px; /* Increase padding for more space */
+    box-sizing: border-box;
+  }
+  
+  .card-body {
+    font-size: 18px; /* Increase font size for larger content */
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* If using SCSS */
+  .d-flex {
+    @extend .justify-content-center;
+    @extend .align-items-start; /* Use align-items-start to position higher */
+    @extend .vh-100;
+  }
+  
+  .card {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: auto;
+    padding: 60px; /* Increase padding for more space */
+    box-sizing: border-box;
+  
+    .card-body {
+      font-size: 18px; /* Increase font size for larger content */
+    }
+  
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
